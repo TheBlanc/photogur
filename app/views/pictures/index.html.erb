@@ -1,9 +1,38 @@
-<h1>Pictures (<%= @pictures.length %>)</h1>
-<%= link_to("New Picture", "/pictures/new") %>
+<div class="container">
+  <div class="new_picture_button">
+    <button><%= link_to("New Picture", "/pictures/new") %></button>
+  </div>
 
-<% @pictures.each do |picture| %>
-  <p><%= picture.title %>, <%= picture.artist %></p>
+  <section class="gallery most_recent">
+    <h1>Recent (<%= @recent_pictures.length %>)</h1>
+    <% @recent_pictures.each do |picture| %>
+      <div class="picture">
+        <%= link_to(image_tag(picture.url), "/pictures/#{picture.id}") %>
+        <p>"<%= picture.title %>"</p>
+        <p><strong>- <%= picture.artist %></strong></p>
+      </div>
+    <% end %>
+  </section>
 
-  <%= link_to(image_tag(picture.url), "/pictures/#{picture.id}") %>
-<% end %>
-<img src="" alt="">
+  <section class="gallery old_pictures">
+    <h1>Old (<%= @old_pictures.length %>)</h1>
+    <% @old_pictures.each do |picture| %>
+      <div class="picture">
+        <%= link_to(image_tag(picture.url), "/pictures/#{picture.id}") %>
+        <p>"<%= picture.title %>"</p>
+        <p><strong>- <%= picture.artist %></strong></p>
+      </div>
+    <% end %>
+  </section>
+
+  <section class="gallery old_pictures">
+    <h1>All (<%= @pictures.length %>)</h1>
+    <% @pictures.each do |picture| %>
+      <div class="picture">
+        <%= link_to(image_tag(picture.url), "/pictures/#{picture.id}") %>
+        <p>"<%= picture.title %>"</p>
+        <p><strong>- <%= picture.artist %></strong></p>
+      </div>
+    <% end %>
+  </section>
+</div>

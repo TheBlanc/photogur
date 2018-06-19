@@ -1,6 +1,8 @@
 class PicturesController < ApplicationController
   def index
-    @pictures = Picture.all
+    @pictures = Picture.all.order(created_at: :desc)
+    @recent_pictures = Picture.created_after(Date.new(2018,05,01))
+    @old_pictures = Picture.created_between(Date.new(2018,01,01), Date.new(2018,05,01))
   end
 
   def show

@@ -7,6 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header>
+  <div class="logo">
+    <div class="flash">\|/</div>
+    <h1><%= link_to(image_tag("camera_icon.png"), root_url) %></h1>
+  </div>
+  <h2>TOUJOURS FAUX</h2>
+  </header>
+
 
 <%= yield %>
 
