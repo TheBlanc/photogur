@@ -1,3 +1,11 @@
+<% if @picture.errors.messages.length > 0  %>
+  <div class="errors">
+    <% @picture.errors.messages.each do |attribute, errors| %>
+      <p><%= attribute.capitalize %> <%= errors[0].capitalize %></p>
+    <% end %>
+  </div>
+<% end %>
+
 <h1>Edit Picture</h1>
 
 <p>

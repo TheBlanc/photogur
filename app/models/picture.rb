@@ -1,4 +1,10 @@
 class Picture < ApplicationRecord
+
+  validates :artist, :url, presence: true
+  validates :title, :artist, length: { within: 3..10 }
+  validates :url, uniqueness: true
+
+
   def self.created_after(time)
     self.where('created_at > ?', time)
   end

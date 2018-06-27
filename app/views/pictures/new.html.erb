@@ -1,6 +1,16 @@
-<h1>Add a picture</h1>
-<%= link_to("Back to Pictures", "/pictures") %>
-<%= form_for(@picture) do |f| %>
+<section class="add-picture">
+  <% if @picture.errors.messages.length > 0  %>
+    <div class="errors">
+      <% @picture.errors.messages.each do |attribute, errors| %>
+        <p><%= attribute.capitalize %> <%= errors[0].capitalize %></p>
+      <% end %>
+    </div>
+  <% end %>
+
+  <h1>Add a picture</h1>
+  
+  <%= link_to("Back to Pictures", "/pictures") %>
+  <%= form_for(@picture) do |f| %>
   <p>
     <%= f.label :artist %><br>
     <%= f.text_field :artist %>
@@ -16,4 +26,5 @@
   <p>
     <%= f.submit "Save" %>
   </p>
-<% end %>
+  <% end %>
+</section>

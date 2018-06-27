@@ -36,7 +36,7 @@ header h1, header h2 {
 }
 
 header {
-  margin: 20px 0px;
+  margin: 40px 0px 60px 0px;
 }
 
 button {
@@ -98,4 +98,15 @@ button a {
 .big_picture p {
   margin-top: 50px;
   text-align: left;
+}
+
+/* -------------- NEW PICTURE PAGE -------------------- */
+.errors {
+  display: inline-block;
+  border: solid 2px red;
+  padding: 0px 15px;
+}
+
+.add-picture {
+  text-align: center;
 }
