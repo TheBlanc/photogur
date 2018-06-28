@@ -7,6 +7,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <nav class="top-nav">
+    <% if current_user %>
+      <p class="user">Signed In as: <%= current_user.email %></p>
+      <div class="sign_out">
+        <button><%= link_to("Sign Out", session_url(session[:user_id]), method: :delete) %></button>
+      </div>
+    <% else %>
+      <div class="sign_up">
+        <button><%= link_to("Sign Up", new_users_url) %></button>
+      </div>
+      <div class="sign_in">
+        <button><%= link_to("Sign In", new_session_url) %></button>
+      </div>
+    <% end %>
+
+  </nav>
   <header>
   <div class="logo">
     <div class="flash">\|/</div>
